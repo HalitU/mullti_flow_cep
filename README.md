@@ -34,6 +34,6 @@ docker compose -f docker-compose.yml up client_one --build
 docker compose -f docker-compose.yml up client_two --build
 
 After the containers are up and running, go to http://localhost:8080/docs#/default/__start_simulation__post
-run the method with algorithm_number 46 and hist_data_after 0 to test the proposed constrained based programming solution.
+run the method with algorithm_number 66 and hist_data_after 0 to test the proposed constrained based programming solution.
 
 Rest of the algorithm choices can be find within the cep_library/management/server/management_server.py file
