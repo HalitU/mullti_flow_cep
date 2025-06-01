@@ -2,13 +2,12 @@ from ortools.sat.python import cp_model
 
 from cep_library import configs
 
+
 class CPSATV3Optimizer:
-    def __init__(self, 
-                 model: cp_model.CpModel) -> None:
+    def __init__(self, model: cp_model.CpModel) -> None:
         self.model = model
-    
+
     def optimize(self):
-        
 
         print("Running the optimization...")
 
@@ -16,7 +15,6 @@ class CPSATV3Optimizer:
             if configs.CP_SAT_LOG:
                 print(log)
 
-        
         solution_found = False
         solver = cp_model.CpSolver()
         solver.parameters.num_workers = configs.CP_SAT_WORKER_COUNT
@@ -25,9 +23,11 @@ class CPSATV3Optimizer:
         solver.parameters.cp_model_presolve = configs.CP_SAT_PRESOLVE
         solver.parameters.debug_crash_on_bad_hint = True
         solver.parameters.fix_variables_to_their_hinted_value = True
-        
+
         if configs.CP_SAT_PRESOLVE and configs.CP_SAT_PRESOLVE_ITERATIONS > 0:
-            solver.parameters.max_presolve_iterations = configs.CP_SAT_PRESOLVE_ITERATIONS
+            solver.parameters.max_presolve_iterations = (
+                configs.CP_SAT_PRESOLVE_ITERATIONS
+            )
 
         solver.parameters.log_search_progress = configs.CP_SAT_LOG
 
@@ -45,11 +45,11 @@ class CPSATV3Optimizer:
             print("No solution found.")
 
         if status == cp_model.INFEASIBLE:
-            print(f'{solver.SufficientAssumptionsForInfeasibility()}')
+            print(f"{solver.SufficientAssumptionsForInfeasibility()}")
 
         if solution_found == False:
             raise Exception("No solution found.")
         else:
             print(f"Optimized solution is: {solver.ObjectiveValue()}")
-        
+
         return solver, solution_found

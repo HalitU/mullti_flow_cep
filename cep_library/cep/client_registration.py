@@ -5,5 +5,5 @@ from cep_library.data.database_management_service import DatabaseManagementServi
 
 
 class RegisterCEPClient:
-    def __init__(self, app:FastAPI, db:DatabaseManagementService) -> None:
+    def __init__(self, app: FastAPI, db: DatabaseManagementService) -> None:
         self.client_management = CEPManagementService(configs.env_host_name, app, db=db)

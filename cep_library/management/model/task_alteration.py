@@ -1,6 +1,7 @@
 from typing import List
 from cep_library.cep.model.cep_task import CEPTask
 
+
 class DataMigrationModel:
     def __init__(self):
         self.topic: str
@@ -10,6 +11,7 @@ class DataMigrationModel:
         self.writer_host: str
         self.event_name: str
 
+
 class TaskAlterationModel:
     def __init__(self):
         self.host: str
@@ -18,6 +20,7 @@ class TaskAlterationModel:
         self.cep_task: CEPTask
         self.migration_requests: List[DataMigrationModel]
         self.only_migration = False
+
 
 class TaskAlterationBulk:
     def __init__(self) -> None:

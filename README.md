@@ -22,3 +22,18 @@ Its working principle in terms of running the library is pretty much same, and f
 configs.py contains different configurations that can be set via environment variables or via code.
 
 requirements.txt contains the minimum library requirements used during the experiments.
+
+## Example
+
+Start the applications, 1 server and 2 client apps.
+
+docker compose -f docker-compose.yml up cep_api_server --build
+
+docker compose -f docker-compose.yml up client_one --build
+
+docker compose -f docker-compose.yml up client_two --build
+
+After the containers are up and running, go to http://localhost:8080/docs#/default/__start_simulation__post
+run the method with algorithm_number 46 and hist_data_after 0 to test the proposed constrained based programming solution.
+
+Rest of the algorithm choices can be find within the cep_library/management/server/management_server.py file

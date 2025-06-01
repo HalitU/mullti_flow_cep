@@ -1,0 +1,461 @@
+{
+  "audio_sensor": {
+    "output_topic": "raw.audio_sensor",
+    "data_name": "audio_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "camera_feed_sensor": {
+    "output_topic": "raw.camera_feed_sensor",
+    "data_name": "camera_feed_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": false
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": true
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": false
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": true
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": false
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": true
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": false
+      }
+    }
+  },
+  "humidity_sensor": {
+    "output_topic": "raw.humidity_sensor",
+    "data_name": "humidity_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "laser_counter_sensor": {
+    "output_topic": "raw.laser_counter_sensor",
+    "data_name": "laser_counter_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "noise_sensor": {
+    "output_topic": "raw.noise_sensor",
+    "data_name": "noise_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "pollutant_sensor": {
+    "output_topic": "raw.pollutant_sensor",
+    "data_name": "pollutant_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "speed_sensor": {
+    "output_topic": "raw.speed_sensor",
+    "data_name": "speed_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "temperature_data_sensor": {
+    "output_topic": "raw.temperature_data_sensor",
+    "data_name": "temperature_data_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  },
+  "wind_sensor": {
+    "output_topic": "raw.wind_sensor",
+    "data_name": "wind_sensor",
+    "count_per_delay": 1,
+    "delayS": 1.0,
+    "durationS": 600,
+    "alarming_data_time_intervals": {
+      "1": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [0, 90],
+        "alarming": true
+      },
+      "2": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [91, 180],
+        "alarming": false
+      },
+      "3": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [181, 270],
+        "alarming": true
+      },
+      "4": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [271, 360],
+        "alarming": false
+      },
+      "5": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [361, 450],
+        "alarming": true
+      },
+      "6": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [451, 540],
+        "alarming": false
+      },
+      "7": {
+        "count_per_delay": 1,
+        "delayS": 1.0,
+        "interval": [541, 630],
+        "alarming": true
+      }
+    }
+  }
+}

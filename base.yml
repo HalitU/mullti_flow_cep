@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+  cep_configs:
+    environment:
+      - SERVER_NAME=cep_api_server
+      - SERVER_PORT=8080
+      
+      - MQTT_HOST=mqttserver
+      - MQTT_PORT=1883
+
+      - EVAL_PERIOD_SECS=30
+      - DATA_CARRY_ENABLED=True
+      - DATA_CARRY_WINDOW=5 #seconds
+      - COLLECTION_LIFETIME=10 #seconds
+      - QUERY_WITHIN_TIMEDELTA=1000 #milliseconds
+
+      - WRITABLE_DEVICE_LIMIT=2
+      - ALLOWED_PARALLEL_EXECUTION_COUNT=2
+      - STAT_NORMALIZER_LOW=10.0
+      - STAT_NORMALIZER_HIGH=100.0
+      - CEP_SAT_OPT_FUNCTION=1
+      - CP_SAT_EVENT_ACTIVATION_MULTIPLIER=1.2
+      - CEP_SAT_BANDWIDTH_BALANCER=1
+      - STATISTICS_REMOTE_MULTIPLIER=1.2
+
+      - HEUR_BIN_LIMIT=2
+      - HEUR_SINGLE_ALL=1
+
+      - CP_RUNTIME_SECONDS=15
+      - SIM_DURATION=600
+      - SERVER_QUERY_TYPE=7
+      - IMAGE_FETCH_LIMIT=1
+      - USE_HISTORIC_DIST_AFTER_N=0
+      - MIN_COST_AFTER_N_DIST=-1
+      - ENFORCE_PRODUCTION_LOCATION=0
+      - DIFFERENT_DEVICE_READ_PENATLY=2
+      - DEVICE_CHANGE_PENALTY=3
+      - DEVICE_NON_CHANGE_MULTIPLIER=2
+      - MANIPULATE_CP_PARAMS=1
+      - DIFFERENCE_BALANCE_WEIGHT=1
+      - DIFFERENCE_EQUALIZER_WEIGHT=1
+      - OPT_USE_CRR_VALUES_ONLY=1
+      - MIN_REQUIRED_ACTIVE_VAR=2 # align this with the data production rate and the QUERY_WITHIN_TIMEDELTA parameter
+      - RAW_IMAGE_SCALE_PERCENT=3
+      - DEVICE_ACTION_LIMIT=3
+      - DEVICE_ACTION_MIN_LIMIT=1
+      - DEVICE_INTAKE_MIN_LIMIT=1
+      - ALLOWED_WRITING_PER_DEVICE=3
+
+      - TASK_LOAD_TYPE=0
+      - VIDEO_PATH=vanet_apps/data/sample/pexels-ivan-khmelyuk.mp4
+      - AUDIO_PATH=vanet_apps/data/sample/BabyElephantWalk60.wav
+      - NOISE_SIZE=0
+      - SLEEP_DURATION=1
+      
+      - DATA_OPERATION_TIMEOUT=60
+      - DATA_MAX_CONNECTION=100
+      - CP_CPU_LIMIT=0.5
+      - OS_TYPE=1
+      - DATABASE_TYPE=0
+      - data_pattern_json_file=vanet_apps/data/dataconfigs/sensor_data_pattern_client_one.json

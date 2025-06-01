@@ -1,0 +1,155 @@
+version: "3"
+services:
+  mqttserver:
+    image: eclipse-mosquitto:2.0.18
+    container_name: mqttserver
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - rpi_net
+    volumes:
+      - type: bind
+        source: ./mqtt_config/
+        target: /mosquitto/config/
+        read_only: true 
+
+  mongo_one:
+    image: mongo
+    container_name: mongo_one
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - type: tmpfs
+        target: /data/db
+    networks:
+      - rpi_net
+
+  mongo_two:
+    image: mongo
+    container_name: mongo_two
+    ports:
+      - "27018:27018"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - type: tmpfs
+        target: /data/db
+    command: mongod --port 27018
+    networks:
+      - rpi_net
+
+  # for fast clearing 
+  # docker rm cep_api_server; docker rmi cep_api_server; docker-compose up cep_api_server;
+  cep_api_server:
+    extends:
+      file: base.yml
+      service: cep_configs  
+    cap_add:
+      - NET_ADMIN
+    build:
+      context: .
+      dockerfile: local.server.dockerfile
+    image: cep_api_server:1.0
+    container_name: cep_api_server
+    tty: true
+    restart: "no"
+    environment:
+      - DISTRIBUTION_TYPE=46
+      - SERVER_NAME=0.0.0.0
+      - SERVER_PORT=8080
+      - OS_TYPE=1
+      - MQTT_HOST=mqttserver
+      - MQTT_PORT=1883
+      - EVAL_ACTIVE=0
+      - IS_LOCAL=1
+    ports:
+      # api port
+      - "8080:8080"
+    networks:
+      - rpi_net
+    depends_on:
+      - mqttserver
+
+  # for fast clearing 
+  # docker rm cep_api; docker rmi cep_api
+  # docker-compose up cep_api
+  # docker rm client_one; docker rmi client_one; docker-compose up client_one;
+  # pipreqs . --force
+  client_one:
+    extends:
+      file: base.yml
+      service: cep_configs    
+    build:
+      context: .
+      dockerfile: local.client.dockerfile
+    image: client_one:1.0
+    container_name: client_one
+    tty: true
+    restart: "no"
+    environment:
+      - MONGO_SELF_HOST=mongo_one
+      - MONGO_ONE_HOST=mongo_one
+      - MONGO_ONE_PORT=27017
+      
+      - HOST_NAME=client_one
+      - HOST_IP=0.0.0.0
+      - HOST_PORT=8081
+      - HOST_X=130
+      - HOST_Y=140
+
+      - RAW_PRODUCER_TYPES=audio_sensor,camera_feed_sensor,humidity_sensor,laser_counter_sensor,noise_sensor
+      - data_pattern_json_file=vanet_apps/data/dataconfigs/sensor_data_pattern_client_one.json
+      - EVENT_CONSUMER_TYPES=AmbulanceAlarmConsumer,HealthAlarmConsumer,TrafficAlarmConsumer,CongestionConsumer
+    ports:
+      # api port
+      - "8081:8081"
+    networks:
+      - rpi_net
+    depends_on:
+      - mongo_one
+
+  client_two:
+    extends:
+      file: base.yml
+      service: cep_configs    
+    build:
+      context: .
+      dockerfile: local.client.dockerfile
+    image: client_one:1.0
+    container_name: client_two
+    tty: true
+    restart: "no"
+    environment:
+      - MONGO_SELF_HOST=mongo_two
+      - MONGO_ONE_HOST=mongo_two
+      - MONGO_ONE_PORT=27017
+      
+      - HOST_NAME=client_two
+      - HOST_IP=0.0.0.0
+      - HOST_PORT=8082
+      - HOST_X=130
+      - HOST_Y=140
+
+      - RAW_PRODUCER_TYPES=pollutant_sensor,speed_sensor,temperature_data_sensor,wind_sensor
+      - data_pattern_json_file=vanet_apps/data/dataconfigs/sensor_data_pattern_client_one.json
+      - EVENT_CONSUMER_TYPES=CivilianDensityConsumer,FastCarAlarmConsumer,WeatherAppConsumer
+    ports:
+      # api port
+      - "8082:8082"
+    networks:
+      - rpi_net
+    depends_on:
+      - mongo_two
+
+  # docker rm client_two; docker rmi client_two; docker-compose up client_two;
+  # https://stackoverflow.com/questions/37871540/how-many-cpus-does-a-docker-container-use
+
+# Local network
+networks:
+  rpi_net:
+    name: hostbridge   
